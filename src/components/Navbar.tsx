@@ -44,16 +44,16 @@ const Navbar = () => {
       href: "#about",
     },
     {
-      name: "Capabilities",
+      name: "Skills",
       href: "#skills",
     },
     {
-      name: "Work",
+      name: "Projects",
       href: "#projects",
     },
     {
-      name: "Approach",
-      href: "#experience",
+      name: "Why Me",
+      href: "#why-me",
     },
     {
       name: "Contact",
@@ -95,7 +95,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-theme-light hover:bg-theme-accent/10 hover:text-theme-accent"
+              className="block rounded-lg px-4 py-2 text-sm font-medium text-slate-900 hover:bg-[#F4F7FF] hover:text-theme-blue"
             >
               {link.name}
             </a>
@@ -109,7 +109,7 @@ const Navbar = () => {
         <button
           type="button"
           onClick={handleBack}
-          className="flex w-full items-center gap-2 rounded-lg border border-theme-accent/40 px-4 py-2 text-sm font-medium text-theme-accent hover:border-theme-accent hover:text-theme-accent/80"
+          className="flex w-full items-center gap-2 rounded-lg border border-theme-blue/30 px-4 py-2 text-sm font-medium text-theme-blue hover:border-theme-blue hover:text-theme-blue/80"
         >
           <HomeIcon className="h-4 w-4" aria-hidden="true" />
           <span>{backLabel}</span>
@@ -123,7 +123,7 @@ const Navbar = () => {
           <button
             type="button"
             onClick={handleBack}
-            className="flex w-full items-center gap-2 rounded-lg border border-theme-accent/40 px-4 py-2 text-sm font-medium text-theme-accent hover:border-theme-accent hover:text-theme-accent/80"
+            className="flex w-full items-center gap-2 rounded-lg border border-theme-blue/30 px-4 py-2 text-sm font-medium text-theme-blue hover:border-theme-blue hover:text-theme-blue/80"
           >
             <HomeIcon className="h-4 w-4" aria-hidden="true" />
             <span>{backLabel}</span>
@@ -131,7 +131,7 @@ const Navbar = () => {
           <button
             type="button"
             onClick={handleViewFullPortfolio}
-            className="flex w-full items-center gap-2 rounded-lg bg-theme-accent px-4 py-2 text-sm font-semibold text-theme-dark hover:bg-theme-accent/90"
+            className="flex w-full items-center gap-2 rounded-lg bg-theme-blue px-4 py-2 text-sm font-semibold text-white hover:bg-theme-blue/90"
           >
             <LayoutGrid className="h-4 w-4" aria-hidden="true" />
             <span>View Full Portfolio</span>
@@ -150,15 +150,15 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         showSolidHeader
-          ? "bg-theme-dark/90 backdrop-blur-md py-3 shadow-lg"
-          : "bg-transparent py-6",
+          ? "bg-white/95 backdrop-blur-md py-3 shadow-lg"
+          : "bg-white/80 backdrop-blur-sm py-6",
       )}
     >
       <nav className="container relative flex items-center justify-between">
         {isLandingPage ? (
           <a
             href="#hero"
-            className="flex items-center text-xl transition-colors hover:text-theme-accent"
+            className="flex items-center text-xl transition-colors hover:text-theme-blue"
           >
             <BrandName
               className="gap-3"
@@ -169,7 +169,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/"
-            className="flex items-center text-xl transition-colors hover:text-theme-accent"
+            className="flex items-center text-xl transition-colors hover:text-theme-blue"
           >
             <BrandName
               className="gap-3"
@@ -185,7 +185,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium transition-colors hover:text-theme-accent"
+                className="text-sm font-medium text-slate-700 transition-colors hover:text-theme-blue"
               >
                 {link.name}
               </a>
@@ -198,7 +198,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              className="flex items-center rounded-md p-2 text-theme-light hover:text-theme-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent"
+              className="flex items-center rounded-md p-2 text-slate-900 hover:text-theme-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-theme-blue"
               aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={isMobileMenuOpen}
             >
@@ -216,7 +216,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={handleBack}
-              className="inline-flex items-center gap-2 rounded-lg border border-theme-accent/40 bg-transparent px-4 py-2 text-sm font-medium text-theme-accent hover:border-theme-accent hover:text-theme-accent/80"
+              className="inline-flex items-center gap-2 rounded-lg border border-theme-blue/30 bg-transparent px-4 py-2 text-sm font-medium text-theme-blue hover:border-theme-blue hover:text-theme-blue/80"
             >
               <HomeIcon className="h-4 w-4" aria-hidden="true" />
               <span>{backLabel}</span>
@@ -229,7 +229,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={handleBack}
-              className="inline-flex items-center gap-2 rounded-lg border border-theme-accent/40 bg-transparent px-4 py-2 text-sm font-medium text-theme-accent hover:border-theme-accent hover:text-theme-accent/80"
+              className="inline-flex items-center gap-2 rounded-lg border border-theme-blue/30 bg-transparent px-4 py-2 text-sm font-medium text-theme-blue hover:border-theme-blue hover:text-theme-blue/80"
             >
               <HomeIcon className="h-4 w-4" aria-hidden="true" />
               <span>{backLabel}</span>
@@ -237,7 +237,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={handleViewFullPortfolio}
-              className="inline-flex items-center gap-2 rounded-lg bg-theme-accent px-4 py-2 text-sm font-semibold text-theme-dark hover:bg-theme-accent/90"
+              className="inline-flex items-center gap-2 rounded-lg bg-theme-blue px-4 py-2 text-sm font-semibold text-white hover:bg-theme-blue/90"
             >
               <LayoutGrid className="h-4 w-4" aria-hidden="true" />
               <span>View Full Portfolio</span>
@@ -246,7 +246,7 @@ const Navbar = () => {
         )}
 
         {isMobileMenuOpen && hasMobileMenu && (
-          <div className="absolute left-0 right-0 top-full mt-3 rounded-2xl border border-theme-accent/20 bg-theme-secondary-dark/95 p-4 shadow-2xl shadow-theme-accent/20 backdrop-blur-lg md:hidden">
+          <div className="absolute left-0 right-0 top-full mt-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl shadow-blue-200/60 md:hidden">
             {renderMobileMenuContent()}
           </div>
         )}

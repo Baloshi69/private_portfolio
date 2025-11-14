@@ -15,7 +15,7 @@ const BrandName: React.FC<BrandNameProps> = ({
   iconClassName,
   textClassName,
   showIcon = true,
-  label = "ALBaloshi.Tech",
+  label = "Al Baloshi Nawaz",
   showText = true,
 }) => {
   const renderLabel = () => {
@@ -51,7 +51,7 @@ const BrandName: React.FC<BrandNameProps> = ({
         />
       )}
       {showText && (
-        <span className={cn("font-logo text-theme-light text-lg leading-none", textClassName)}>
+        <span className={cn("font-logo text-slate-900 text-lg leading-none", textClassName)}>
           {renderLabel()}
         </span>
       )}

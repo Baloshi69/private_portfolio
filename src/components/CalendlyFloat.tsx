@@ -25,9 +25,10 @@ const CalendlyFloat = () => {
       type="button"
       onClick={handleClick}
       aria-label="Book a discovery call"
-      className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-theme-accent/40 bg-theme-dark text-theme-light shadow-[0_12px_24px_-14px_rgba(35,229,176,0.65)] transition-transform hover:scale-105 hover:shadow-[0_18px_28px_-12px_rgba(35,229,176,0.85)] focus:outline-none focus:ring-2 focus:ring-theme-accent/80 focus:ring-offset-2 focus:ring-offset-theme-dark"
+      className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-theme-blue to-theme-accent px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_40px_rgba(0,85,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_25px_50px_rgba(0,85,255,0.45)] focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-white"
     >
-      <CalendarCheck className="h-5 w-5 text-theme-accent" aria-hidden="true" />
+      <CalendarCheck className="h-4 w-4" aria-hidden="true" />
+      <span>Book a call</span>
     </button>
   );
 };

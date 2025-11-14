@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import BrandName from "./BrandName";
 import { socialLinks } from "@/lib/social-links";
 
@@ -6,31 +6,28 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-theme-dark border-t border-theme-accent/10 py-8">
+    <footer className="bg-white border-t border-slate-200 py-10">
       <div className="container">
-        <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-12">
-          <div className="max-w-sm">
-            <a href="#hero" className="flex items-center text-xl transition-colors hover:text-theme-accent">
-              <BrandName
-                className="gap-3"
-                iconClassName="text-base md:text-lg"
-                textClassName="text-base md:text-lg"
-              />
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:gap-12">
+          <div className="max-w-sm space-y-2">
+            <a href="#hero" className="flex items-center text-xl transition-colors hover:text-theme-blue">
+              <BrandName className="gap-3" iconClassName="text-base md:text-lg" textClassName="text-base md:text-lg" />
             </a>
-            <p className="text-theme-muted-text text-sm mt-2">
-              A no-code, vibe coding and automation studio crafting high-performance products with AI precision—delivered faster than traditional development, without compromising craft.
+            <p className="text-sm text-slate-600">
+              I&rsquo;m a certified Bubble.io developer building independent web apps, MVPs, and automation systems for founders who
+              value direct collaboration.
             </p>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-4 md:gap-6 w-full md:w-auto">
-            <div className="flex flex-wrap justify-start md:justify-end gap-4 text-theme-muted-text">
+          <div className="flex w-full flex-col items-start gap-4 md:w-auto md:items-end md:gap-6">
+            <div className="flex flex-wrap gap-4 text-slate-500 md:justify-end">
               {socialLinks.map(({ label, href, Icon }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:text-theme-accent"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 transition-colors hover:border-theme-blue hover:text-theme-blue"
                   aria-label={label}
                 >
                   <Icon className="h-5 w-5" />
@@ -38,13 +35,9 @@ const Footer = () => {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 text-theme-muted-text text-sm">
+            <div className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
               <span>&copy; {year}</span>
-              <BrandName
-                className="gap-2 items-center"
-                iconClassName="h-5 w-auto"
-                textClassName="text-theme-muted-text text-sm"
-              />
+              <BrandName className="items-center gap-2" iconClassName="h-5 w-auto" textClassName="text-sm text-slate-500" />
               <span className="whitespace-nowrap">All rights reserved.</span>
             </div>
           </div>

@@ -59,7 +59,7 @@ const Index = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-theme-dark text-theme-light">
+      <div className="min-h-screen bg-white text-slate-900">
         <Navbar />
         <HeroSection />
         <AboutSection />

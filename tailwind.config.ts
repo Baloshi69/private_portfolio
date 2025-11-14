@@ -56,9 +56,10 @@ export default {
 				theme: {
 					'dark': '#050b16',
 					'light': '#f8fafc',
-					'accent': '#23e5b0',
+					'accent': '#fca351',
 					'secondary-dark': '#0f172a',
-					'muted-text': '#9ca3af',
+					'muted-text': '#5f6b7a',
+					'blue': '#0055ff',
 				}
 			},
 			fontFamily: {

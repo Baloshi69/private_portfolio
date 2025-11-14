@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
-import BrandName from "@/components/BrandName";
-import Lottie from "lottie-react";
 import { socialLinks } from "@/lib/social-links";
 
 type FloatingLogo = {
@@ -52,28 +50,9 @@ const floatingLogos: FloatingLogo[] = [
 ];
 
 const HeroSection = () => {
-  const [animationData, setAnimationData] = useState<Record<string, unknown> | null>(null);
-
-  useEffect(() => {
-    const loadAnimation = async () => {
-      try {
-        const response = await fetch("/lovable-uploads/Coding.json");
-        if (!response.ok) {
-          throw new Error("Failed to load animation");
-        }
-        const data = (await response.json()) as Record<string, unknown>;
-        setAnimationData(data);
-      } catch (error) {
-        console.error("Error loading hero animation:", error);
-      }
-    };
-
-    loadAnimation();
-  }, []);
-
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-20 overflow-hidden">
-      <div className="floating-logo-cloud pointer-events-none hidden md:block">
+    <section id="hero" className="relative overflow-hidden pt-28 pb-16">
+      <div className="floating-logo-cloud pointer-events-none absolute inset-0 hidden md:block z-10">
         {floatingLogos.map((logo) => (
           <div
             key={logo.name}
@@ -94,60 +73,75 @@ const HeroSection = () => {
           </div>
         ))}
       </div>
-      <div className="container relative z-[1]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
-            <div className="flex items-center gap-3">
-              <div className="bg-theme-accent/10 text-theme-accent py-1 px-4 rounded-full inline-block text-sm font-medium">
-                No-Code | Low-Code | AI Automation
-              </div>
+      <div className="container relative z-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
+          <div className="space-y-8 relative z-20">
+            <div className="inline-flex items-center rounded-full bg-[#F4F7FF] px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-theme-blue">
+              Freelance Bubble.io Partner
             </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
-              <BrandName textClassName="text-4xl sm:text-5xl md:text-6xl leading-tight" showIcon={false} /> is your on-demand
-              product team.
-            </h1>
-
-            <p className="text-xl text-theme-muted-text max-w-xl">
-              We help founders and operators ship production-ready platforms fast. From Bubble MVPs to AI-infused automation, our
-              experts turn requirements into launch-ready products without the enterprise price tag.
+            <div className="space-y-4">
+              <p className="text-sm font-semibold text-theme-blue">Certified Bubble.io Developer • Google IT Support Specialist</p>
+              <h1 className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl md:text-6xl">
+                Hello, I&rsquo;m Albalosh Nawaz -- Your Certified Bubble.io Developer
+              </h1>
+            </div>
+            <p className="text-lg leading-relaxed text-slate-600">
+              I build reliable web apps, MVPs, and automation systems for founders, startups, and small businesses. Every plan,
+              integration, test, and deployment is handled personally so you get the focus of a solo developer with five years of
+              hands-on Bubble.io delivery.
             </p>
-
             <div className="flex flex-wrap gap-4">
-              <Button asChild className="bg-theme-accent hover:bg-theme-accent/90 text-theme-dark font-medium rounded-md">
-                <a href="#projects">View Client Work</a>
+              <Button
+                asChild
+                className="rounded-full bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] px-8 py-4 text-base font-semibold text-white shadow-[0_25px_50px_rgba(249,111,74,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_28px_60px_rgba(249,111,74,0.45)]"
+              >
+                <a href="#contact">Let&rsquo;s build something great together</a>
               </Button>
-              <Button asChild variant="outline" className="border-theme-accent text-theme-accent hover:bg-theme-accent/10">
-                <a href="#contact">Book a Discovery Call</a>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full border-2 border-theme-blue/30 bg-white px-8 py-4 text-base font-semibold text-theme-blue shadow-[0_18px_40px_rgba(0,85,255,0.15)] transition-all hover:-translate-y-0.5 hover:border-theme-blue"
+              >
+                <a href="#projects">See my recent work</a>
               </Button>
             </div>
-
-            <div className="flex flex-wrap items-center gap-4 pt-6 text-theme-muted-text">
+            <div className="flex flex-wrap items-center gap-4 text-slate-500">
+              <span className="text-sm font-semibold text-slate-600">Connect with me</span>
               {socialLinks.map(({ label, href, Icon }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors hover:text-theme-accent"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-theme-blue hover:text-theme-blue"
                   aria-label={label}
                 >
-                  <Icon className="h-6 w-6" aria-hidden="true" />
+                  <Icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               ))}
             </div>
           </div>
-
-          <div className="flex justify-center md:justify-end animate-fade-in">
-            {animationData ? (
-              <Lottie animationData={animationData} loop autoplay className="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px]" />
-            ) : (
-              <div className="h-24 w-24 animate-pulse rounded-full bg-theme-accent/20" aria-hidden="true" />
-            )}
+          <div className="relative flex justify-center z-0">
+            <div className="absolute -bottom-16 -left-6 hidden h-36 w-36 rounded-3xl bg-[#ffb347]/20 blur-3xl md:block" aria-hidden="true" />
+            <div className="relative flex items-center justify-center">
+              <div className="absolute -left-10 top-6 hidden h-20 w-20 rounded-full bg-[#f1f5ff] shadow-inner md:block" aria-hidden="true" />
+              <div className="absolute -right-6 bottom-4 hidden h-24 w-24 rounded-[36px] bg-[#ffedd5] shadow-lg md:block" aria-hidden="true" />
+              <div className="relative h-72 w-72 rounded-full border-[10px] border-white bg-white shadow-[0_45px_120px_-70px_rgba(15,23,42,0.55)] md:h-80 md:w-80">
+                <img
+                  src="/Hero_circle_pic.jpeg"
+                  alt="Al Baloshi Nawaz headshot"
+                  className="h-full w-full rounded-full object-cover"
+                />
+                <div className="absolute -bottom-6 right-0 rounded-full bg-[#ff8c4c] px-4 py-2 text-sm font-semibold text-white shadow-[0_15px_30px_rgba(0,0,0,0.15)]">
+                  Al Baloshi Nawaz
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 export default HeroSection;

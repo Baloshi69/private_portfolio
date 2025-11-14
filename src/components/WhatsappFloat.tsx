@@ -7,7 +7,7 @@ const WhatsappFloat = () => {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-20 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_24px_-12px_rgba(37,211,102,0.75)] transition-transform hover:scale-105 hover:shadow-[0_18px_28px_-12px_rgba(37,211,102,0.85)] focus:outline-none focus:ring-2 focus:ring-[#25D366]/80 focus:ring-offset-2 focus:ring-offset-theme-dark"
+      className="fixed bottom-20 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_24px_-12px_rgba(37,211,102,0.75)] transition-transform hover:scale-105 hover:shadow-[0_18px_28px_-12px_rgba(37,211,102,0.85)] focus:outline-none focus:ring-2 focus:ring-[#25D366]/80 focus:ring-offset-2 focus:ring-offset-white"
     >
       <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347" />
