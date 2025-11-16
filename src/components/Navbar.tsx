@@ -95,7 +95,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-slate-900 hover:bg-[#F4F7FF] hover:text-theme-blue"
+              className="nav-link block rounded-lg px-4 py-2 text-sm hover:bg-[#F4F7FF]"
             >
               {link.name}
             </a>
@@ -150,7 +150,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         showSolidHeader
-          ? "bg-white/95 backdrop-blur-md py-3 shadow-lg"
+          ? "bg-white/45 backdrop-blur-xl border-b border-white/30 py-3 shadow-[0_18px_45px_rgba(15,23,42,0.18)]"
           : "bg-white/80 backdrop-blur-sm py-6",
       )}
     >
@@ -158,7 +158,7 @@ const Navbar = () => {
         {isLandingPage ? (
           <a
             href="#hero"
-            className="flex items-center text-xl transition-colors hover:text-theme-blue"
+            className="flex items-center text-xl transition-all hover:opacity-80"
           >
             <BrandName
               className="gap-3"
@@ -169,7 +169,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/"
-            className="flex items-center text-xl transition-colors hover:text-theme-blue"
+            className="flex items-center text-xl transition-all hover:opacity-80"
           >
             <BrandName
               className="gap-3"
@@ -185,7 +185,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-slate-700 transition-colors hover:text-theme-blue"
+                className="nav-link text-sm transition-all"
               >
                 {link.name}
               </a>

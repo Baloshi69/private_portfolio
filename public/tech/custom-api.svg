@@ -1,6 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect x="6" y="12" width="52" height="40" rx="10" fill="#111827" stroke="#3CE1B8" stroke-width="2" />
-  <path d="M22 24h-6v16h6" stroke="#3CE1B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M28 40V24l8 16 8-16v16" stroke="#3CE1B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M48 24h6v16h-6" stroke="#3CE1B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <defs>
+    <linearGradient id="themeGradientCustomApi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8c4c" />
+      <stop offset="55%" stop-color="#ffb347" />
+      <stop offset="100%" stop-color="#0055ff" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="12" width="52" height="40" rx="10" fill="#111827" stroke="url(#themeGradientCustomApi)" stroke-width="2" />
+  <path d="M22 24h-6v16h6" stroke="url(#themeGradientCustomApi)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M28 40V24l8 16 8-16v16" stroke="url(#themeGradientCustomApi)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M48 24h6v16h-6" stroke="url(#themeGradientCustomApi)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 </svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="themeGradientJS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8c4c" />
+      <stop offset="55%" stop-color="#ffb347" />
+      <stop offset="100%" stop-color="#0055ff" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0f172a" stroke="url(#themeGradientJS)" stroke-width="2" />
+  <path d="M18 28 12 34l6 6" fill="none" stroke="url(#themeGradientJS)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M46 28l6 6-6 6" fill="none" stroke="url(#themeGradientJS)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="32" y="36" font-family="Inter, 'Segoe UI', sans-serif" font-size="20" font-weight="700" letter-spacing="0.15em" text-anchor="middle" dominant-baseline="middle" fill="url(#themeGradientJS)">JS</text>
+  <path d="M24 44h16" stroke="url(#themeGradientJS)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+</svg>

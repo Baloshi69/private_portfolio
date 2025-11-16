@@ -191,11 +191,11 @@ const ContactSection = () => {
               
               <Button
                 type="submit"
-                className="mt-auto inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-theme-blue to-theme-accent px-8 py-4 text-base font-semibold text-white shadow-[0_20px_45px_rgba(0,85,255,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_26px_60px_rgba(0,85,255,0.4)]"
+                className="mt-auto inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] px-8 py-4 text-base font-semibold text-white shadow-[0_18px_45px_rgba(249,111,74,0.33)] transition-all hover:-translate-y-0.5 hover:shadow-[0_22px_55px_rgba(249,111,74,0.42)]"
                 disabled={isSubmitting}
               >
                 <img src={CalendlyLogo} alt="Calendly" className="h-4 w-4" />
-                {isSubmitting ? 'Sending...' : 'Book a Discovery Call'}
+                {isSubmitting ? "Sending..." : "Book a Discovery Call"}
               </Button>
             </form>
           </div>
