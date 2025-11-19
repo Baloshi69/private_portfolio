@@ -1,19 +1,29 @@
 name: Mirror to Repo B
+
 on:
   push:
     branches:
-      - main   # change this if your default branch is not "main"
+      - main   # change if your default branch is different
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repo A
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false  # <- important: do NOT use GITHUB_TOKEN
+
+      - name: Configure Git
+        run: |
+          git config user.name "Baloshi69"
+          git config user.email "github-actions@users.noreply.github.com"
 
       - name: Push to Repo B
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
-          git remote add mirror https://Baloshi69:${{ secrets.MIRROR_TOKEN }}@github.com/Baloshi69/private_portfolio.git
+          git remote add mirror https://Baloshi69:${MIRROR_TOKEN}@github.com/Baloshi69/private_portfolio.git
           git push mirror main --force   # change "main" if your branch name is different
