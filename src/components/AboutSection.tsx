@@ -1,5 +1,6 @@
 import React from "react";
 import { Cpu, Database, Gauge, Layers, PlugZap, Workflow } from "lucide-react";
+import { useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 const skills = [
   {
@@ -81,6 +82,9 @@ const howIWorkSteps = [
 ];
 
 const AboutSection = () => {
+  const isNasirDomain = useIsNasirDomain();
+  const displayName = isNasirDomain ? "Nasir Nawaz" : "Al Baloshi Nawaz";
+
   return (
     <section id="about" className="bg-[#F9FBFF]">
       <div className="container space-y-12">
@@ -89,7 +93,7 @@ const AboutSection = () => {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#ff8c4c]">About Me</p>
             <h2 className="text-4xl font-bold text-slate-900">I help founders build and optimise Bubble apps with clean logic, automation, and AI-ready structure.</h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              I'm Nasir Nawaz (Baloshi69), a certified Bubble.io developer and Google IT Support Specialist. I work directly with founders, operators, and small teams who need fast,
+              I'm {displayName} (Baloshi69), a certified Bubble.io developer and Google IT Support Specialist. I work directly with founders, operators, and small teams who need fast,
               reliable development without the delays or miscommunication that come with agency layers.
             </p>
             <p className="text-lg leading-relaxed text-slate-600">

@@ -10,7 +10,11 @@ import {
   SITE_NAME,
   TWITTER_HANDLE,
   buildCanonicalUrl,
+  ALT_SITE_NAME,
+  DEFAULT_OG_IMAGE_ALT,
+  ALT_OG_IMAGE_ALT,
 } from "@/lib/seo";
+import { useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 const FALLBACK_GRADIENT =
   "linear-gradient(135deg, #111827 0%, #1f2937 60%, #0f172a 100%)";
@@ -43,13 +47,18 @@ const PortfolioList: React.FC = () => {
   const currentPath = location.pathname + location.search + location.hash;
   const projects = getPortfolioProjects();
   const canonicalUrl = buildCanonicalUrl("/portfolio");
-  const pageTitle = "Portfolio | Nasir Nawaz";
+  const isNasirDomain = useIsNasirDomain();
+  const baseTitle = "Portfolio | AlBaloshiTech";
+  const altTitle = "Portfolio | Nasir Nawaz";
+  const pageTitle = isNasirDomain ? altTitle : baseTitle;
   const pageDescription =
     "Explore shipped no-code, low-code, and automation products crafted for high-velocity founders and operators.";
+  const siteName = isNasirDomain ? ALT_SITE_NAME : SITE_NAME;
+  const ogAlt = isNasirDomain ? ALT_OG_IMAGE_ALT : DEFAULT_OG_IMAGE_ALT;
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Nasir Nawaz Portfolio",
+    name: isNasirDomain ? "Nasir Nawaz Portfolio" : "AlBaloshiTech Portfolio",
     itemListElement: projects.map((project, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -65,13 +74,13 @@ const PortfolioList: React.FC = () => {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:site_name" content={siteName} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={DEFAULT_OG_IMAGE} />
-        <meta property="og:image:alt" content="Nasir Nawaz logo with tagline" />
+        <meta property="og:image:alt" content={ogAlt} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -79,7 +88,7 @@ const PortfolioList: React.FC = () => {
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
-        <meta name="twitter:image:alt" content="Nasir Nawaz logo with tagline" />
+        <meta name="twitter:image:alt" content={ogAlt} />
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
       </Helmet>
       <div className="min-h-screen bg-[#F9FBFF] text-slate-900">

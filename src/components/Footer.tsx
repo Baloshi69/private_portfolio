@@ -1,11 +1,13 @@
 import React from "react";
 import BrandName from "./BrandName";
 import { socialLinks } from "@/lib/social-links";
-import { useContactVisibility } from "@/hooks/useContactVisibility";
+import { useContactVisibility, useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 const Footer = () => {
   const year = new Date().getFullYear();
   const shouldShowContact = useContactVisibility();
+  const isNasirDomain = useIsNasirDomain();
+  const displayYear = isNasirDomain ? 2025 : year;
 
   return (
     <footer className="bg-white border-t border-slate-200 py-10">
@@ -40,8 +42,12 @@ const Footer = () => {
             )}
 
             <div className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
-              <span>&copy; {year}</span>
-              <BrandName className="items-center gap-2" iconClassName="h-5 w-auto" textClassName="text-sm text-slate-500" />
+              <span>&copy; {displayYear}</span>
+              {isNasirDomain ? (
+                <span className="font-semibold text-sm text-slate-600">Nasir Nawaz</span>
+              ) : (
+                <BrandName className="items-center gap-2" iconClassName="h-5 w-auto" textClassName="text-sm text-slate-500" />
+              )}
               <span className="whitespace-nowrap">All rights reserved.</span>
             </div>
           </div>

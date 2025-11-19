@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 interface BrandNameProps {
   className?: string;
@@ -15,18 +16,21 @@ const BrandName: React.FC<BrandNameProps> = ({
   iconClassName,
   textClassName,
   showIcon = true,
-  label = "Nasir Nawaz",
+  label = "ALbaloshi.Tech",
   showText = true,
 }) => {
+  const isNasirDomain = useIsNasirDomain();
+  const effectiveLabel = isNasirDomain ? "Nasir Nawaz" : label;
+
   const renderLabel = () => {
-    const dotIndex = label.indexOf(".");
+    const dotIndex = effectiveLabel.indexOf(".");
 
     if (dotIndex === -1) {
-      return label;
+      return effectiveLabel;
     }
 
-    const before = label.slice(0, dotIndex);
-    const after = label.slice(dotIndex + 1);
+    const before = effectiveLabel.slice(0, dotIndex);
+    const after = effectiveLabel.slice(dotIndex + 1);
 
     return (
       <>
@@ -40,7 +44,7 @@ const BrandName: React.FC<BrandNameProps> = ({
   return (
     <span
       className={cn("inline-flex items-center", (showIcon && showText) && "gap-3", className)}
-      aria-label={label}
+      aria-label={effectiveLabel}
     >
       {showIcon && (
         <img

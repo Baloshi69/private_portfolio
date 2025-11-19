@@ -1,43 +1,39 @@
 import { useEffect, useState } from "react";
 
-const CONTACT_RESTRICTED_DOMAIN = "nasirnawaz.com";
+export const CONTACT_RESTRICTED_DOMAIN = "albaloshi.tech";
 
-const shouldHideContactForHost = (host?: string) => {
-  if (!host) {
-    return false;
-  }
-
+const isRestrictedHost = (host?: string) => {
+  if (!host) return false;
   const normalized = host.toLowerCase();
-  return (
-    normalized === CONTACT_RESTRICTED_DOMAIN ||
-    normalized.endsWith(`.${CONTACT_RESTRICTED_DOMAIN}`)
-  );
+  return normalized === CONTACT_RESTRICTED_DOMAIN || normalized.endsWith(`.${CONTACT_RESTRICTED_DOMAIN}`);
 };
 
-export const useContactVisibility = () => {
-  const [shouldShowContact, setShouldShowContact] = useState(() => {
+export const useIsNasirDomain = () => {
+  const [isNasirDomain, setIsNasirDomain] = useState(() => {
     if (typeof window === "undefined") {
-      return true;
+      return false;
     }
-    return !shouldHideContactForHost(window.location.hostname);
+    return isRestrictedHost(window.location.hostname);
   });
 
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
     }
-    setShouldShowContact(!shouldHideContactForHost(window.location.hostname));
+    setIsNasirDomain(isRestrictedHost(window.location.hostname));
   }, []);
 
-  return shouldShowContact;
+  return isNasirDomain;
+};
+
+export const useContactVisibility = () => {
+  const isNasirDomain = useIsNasirDomain();
+  return !isNasirDomain;
 };
 
 export const isContactAllowed = () => {
   if (typeof window === "undefined") {
     return true;
   }
-
-  return !shouldHideContactForHost(window.location.hostname);
+  return !isRestrictedHost(window.location.hostname);
 };
-
-export { CONTACT_RESTRICTED_DOMAIN };

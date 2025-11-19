@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useHoverTypewriter } from "@/hooks/useHoverTypewriter";
 import { CTA_DEFAULT_TEXT, CTA_PAUSE_DURATION, CTA_PHRASES, CTA_TYPING_DELAY } from "@/lib/ctaMessages";
 import { socialLinks } from "@/lib/social-links";
-import { useContactVisibility } from "@/hooks/useContactVisibility";
+import { useContactVisibility, useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 const UNIFIED_LOGO_SCALE = 0.75;
 
@@ -89,6 +89,8 @@ const HeroSection = () => {
   const [isTypingComplete, setIsTypingComplete] = React.useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(false);
   const shouldShowContact = useContactVisibility();
+  const isNasirDomain = useIsNasirDomain();
+  const displayName = isNasirDomain ? "Nasir Nawaz" : "Al Baloshi Nawaz";
 
   React.useEffect(() => {
     if (typeof window === "undefined") {
@@ -212,14 +214,33 @@ const HeroSection = () => {
               clarity, and expertise of a dedicated freelance Bubble.io developer.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:items-center">
-              {shouldShowContact && <HoverTypewriterCTA />}
-              <Button
-                asChild
-                variant="outline"
-                className="w-full rounded-full border-2 border-[#ffd3bf]/70 bg-white px-8 py-4 text-base font-semibold text-theme-blue shadow-[0_16px_35px_rgba(249,111,74,0.2)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[#fff2e8] hover:shadow-[0_20px_60px_rgba(249,111,74,0.35)] sm:w-auto"
-              >
-                <a href="#projects">See my recent work</a>
-              </Button>
+              {shouldShowContact ? (
+                <>
+                  <HoverTypewriterCTA />
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full rounded-full border-2 border-[#ffd3bf]/70 bg-white px-8 py-4 text-base font-semibold text-theme-blue shadow-[0_16px_35px_rgba(249,111,74,0.2)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[#fff2e8] hover:shadow-[0_20px_60px_rgba(249,111,74,0.35)] sm:w-auto"
+                  >
+                    <a href="#projects">See my recent work</a>
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    asChild
+                    className="w-full rounded-full bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] px-8 py-4 text-base font-semibold text-white shadow-[0_20px_40px_rgba(249,111,74,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_55px_rgba(249,111,74,0.4)] sm:w-auto"
+                  >
+                    <a href="#projects">See my recent work</a>
+                  </Button>
+                  <Button
+                    asChild
+                    className="w-full rounded-full bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] px-8 py-4 text-base font-semibold text-white shadow-[0_20px_40px_rgba(249,111,74,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_55px_rgba(249,111,74,0.4)] sm:w-auto"
+                  >
+                    <a href="/certifications">Explore credentials</a>
+                  </Button>
+                </>
+              )}
             </div>
             {shouldShowContact && (
               <div className="flex flex-wrap items-center justify-center gap-4 text-slate-500">
@@ -246,12 +267,12 @@ const HeroSection = () => {
               <div className="relative h-72 w-72 rounded-full border-[10px] border-white bg-white shadow-[0_45px_120px_-70px_rgba(15,23,42,0.55)] md:h-80 md:w-80">
                 <img
                   src="/Hero_circle_pic.jpeg"
-                  alt="Nasir Nawaz headshot"
+                  alt={`${displayName} headshot`}
                   className="h-full w-full rounded-full object-cover"
                 />
                 <div className="absolute -bottom-6 right-0 flex flex-col items-end gap-1.5">
                   <div className="rounded-full bg-[#ff8c4c] px-4 py-2 text-sm font-semibold text-white shadow-[0_15px_30px_rgba(0,0,0,0.15)]">
-                    Nasir Nawaz
+                    {displayName}
                   </div>
                   <div className="rounded-full border border-white/70 bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-800 shadow-[0_15px_30px_rgba(15,23,42,0.12)]">
                     +4 Years Experience

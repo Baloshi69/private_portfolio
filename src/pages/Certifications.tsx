@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Award, BadgeCheck, Sparkles, ShieldCheck, Target, Database, GraduationCap, Cloud, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useContactVisibility } from "@/hooks/useContactVisibility";
+import { useContactVisibility, useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 type IconComponent = React.ElementType;
 
@@ -202,10 +202,11 @@ const journeyTimeline: { year: string; title: string; description: string; icon:
 const bubbleVerificationUrl = "https://bubble.io/certificate/1717326861532x553683627463259500";
 
 const CertificationsPage = () => {
-  const pageTitle = "Certifications & Skills | Nasir Nawaz";
+  const shouldShowContact = useContactVisibility();
+  const isNasirDomain = useIsNasirDomain();
+  const pageTitle = `Certifications & Skills | ${isNasirDomain ? "Nasir Nawaz" : "AlBaloshiTech"}`;
   const pageDescription =
     "Verified certifications, badges, and product delivery skills that back every Bubble, AI, and automation project.";
-  const shouldShowContact = useContactVisibility();
 
   return (
     <>

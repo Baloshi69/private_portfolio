@@ -18,30 +18,40 @@ import {
   SITE_NAME,
   TWITTER_HANDLE,
   buildCanonicalUrl,
+  ALT_DEFAULT_TITLE,
+  ALT_SITE_NAME,
+  DEFAULT_OG_IMAGE_ALT,
+  ALT_OG_IMAGE_ALT,
 } from "@/lib/seo";
+import { useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 const Index = () => {
+  const isNasirDomain = useIsNasirDomain();
+  const metaTitle = isNasirDomain ? ALT_DEFAULT_TITLE : DEFAULT_TITLE;
+  const siteName = isNasirDomain ? ALT_SITE_NAME : SITE_NAME;
+  const ogAlt = isNasirDomain ? ALT_OG_IMAGE_ALT : DEFAULT_OG_IMAGE_ALT;
+
   return (
     <>
       <Helmet>
-        <title>{DEFAULT_TITLE}</title>
+        <title>{metaTitle}</title>
         <meta name="description" content={DEFAULT_DESCRIPTION} />
         <link rel="canonical" href={buildCanonicalUrl("/")} />
-        <meta property="og:site_name" content={SITE_NAME} />
-        <meta property="og:title" content={DEFAULT_TITLE} />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={DEFAULT_DESCRIPTION} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={buildCanonicalUrl("/")} />
         <meta property="og:image" content={DEFAULT_OG_IMAGE} />
-        <meta property="og:image:alt" content="Nasir Nawaz logo with tagline" />
+        <meta property="og:image:alt" content={ogAlt} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={TWITTER_HANDLE} />
-        <meta name="twitter:title" content={DEFAULT_TITLE} />
+        <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={DEFAULT_DESCRIPTION} />
         <meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
-        <meta name="twitter:image:alt" content="Nasir Nawaz logo with tagline" />
+        <meta name="twitter:image:alt" content={ogAlt} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

@@ -15,16 +15,19 @@ import {
   TWITTER_HANDLE,
   buildCanonicalUrl,
   toAbsoluteUrl,
+  ALT_SITE_NAME,
 } from "@/lib/seo";
+import { useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 const formatOrder = (order: number) => `Project ${order.toString().padStart(2, "0")}`;
 
 const PortfolioDetail: React.FC = () => {
+  const isNasirDomain = useIsNasirDomain();
   const { slug } = useParams();
   const project = getPortfolioProjects().find((item) => item.slug === slug);
 
   if (!project) {
-    const fallbackTitle = "Project Not Found | Nasir Nawaz";
+    const fallbackTitle = isNasirDomain ? "Project Not Found | Nasir Nawaz" : "Project Not Found | AlBaloshiTech";
     const canonicalUrl = buildCanonicalUrl(`/portfolio/${slug ?? ""}`);
 
     return (
@@ -100,7 +103,8 @@ const PortfolioDetail: React.FC = () => {
   });
 
   const canonicalUrl = buildCanonicalUrl(`/portfolio/${project.slug}`);
-  const pageTitle = `${project.title} | Portfolio Case Study | Nasir Nawaz`;
+  const pageTitle = `${project.title} | Portfolio Case Study | ${isNasirDomain ? "Nasir Nawaz" : "AlBaloshiTech"}`;
+  const siteName = isNasirDomain ? ALT_SITE_NAME : SITE_NAME;
   const pageDescription = project.heroTagline ?? project.excerpt;
   const ogImage = toAbsoluteUrl(heroImage);
   const structuredData = {
@@ -113,7 +117,7 @@ const PortfolioDetail: React.FC = () => {
     image: ogImage,
     author: {
       "@type": "Organization",
-      name: SITE_NAME,
+      name: siteName,
       url: SITE_URL,
     },
     about: project.tags,
@@ -127,7 +131,7 @@ const PortfolioDetail: React.FC = () => {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:site_name" content={siteName} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="article" />
@@ -488,4 +492,3 @@ const PortfolioDetail: React.FC = () => {
 };
 
 export default PortfolioDetail;
-
