@@ -34,13 +34,19 @@ const ExperienceSection = () => {
     <section id="why-me" className="bg-white">
       <div className="container">
         <div className="section-heading">
-          <h2>Why founders hire me instead of an agency</h2>
-          <p>Working with me feels like having a technical partner who understands the business stakes.</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d85a1a]">Founder advantages</p>
+          <h2 className="text-transparent bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] bg-clip-text">
+            Why founders hire me instead of an agency
+          </h2>
+          <p className="text-slate-600">Working with me feels like having a technical partner who understands the business stakes.</p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map(({ title, description, Icon }) => (
-            <article key={title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_30px_90px_-65px_rgba(15,23,42,0.55)]">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EEF4FF] text-theme-blue">
+            <article
+              key={title}
+              className="rounded-[32px] border border-white/70 bg-gradient-to-br from-white via-[#fff8f1] to-white p-6 shadow-[0_30px_80px_-60px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:shadow-[0_40px_90px_-55px_rgba(15,23,42,0.45)]"
+            >
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fff2e7] text-[#ff8c4c] shadow-[0_12px_30px_rgba(249,140,76,0.25)]">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900">{title}</h3>

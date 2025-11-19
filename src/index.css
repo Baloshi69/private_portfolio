@@ -112,7 +112,7 @@
 }
 
 .section-heading h2 {
-  @apply mb-3 text-theme-blue font-bold;
+  @apply mb-3 font-bold;
 }
 
 .section-heading p {
@@ -316,6 +316,15 @@
 
 .project-marquee:hover {
   animation-play-state: paused;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes projectMarquee {

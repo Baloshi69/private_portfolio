@@ -210,7 +210,7 @@ const HeroSection = () => {
               issues, I handle every review, integration, optimisation, and deployment personally&mdash;giving you the full focus,
               clarity, and expertise of a dedicated freelance Bubble.io developer.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:items-center">
               <HoverTypewriterCTA />
               <Button
                 asChild
@@ -220,7 +220,7 @@ const HeroSection = () => {
                 <a href="#projects">See my recent work</a>
               </Button>
             </div>
-            <div className="flex flex-wrap items-center gap-4 text-slate-500">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-slate-500">
               {socialLinks.map(({ label, href, Icon }) => (
                 <a
                   key={label}

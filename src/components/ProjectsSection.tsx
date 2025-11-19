@@ -36,16 +36,21 @@ const ProjectsSection = () => {
     <section id="projects" className="bg-[#F9FBFF]">
       <div className="container space-y-12">
         <div className="section-heading">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-400">Featured builds</p>
-          <h2 className="text-4xl font-bold text-theme-blue">Selected projects & builds</h2>
-          <p>Every featured project was scoped, built, and shipped end-to-end -- no handoffs, no agency layers, just focused delivery.</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d85a1a]">Featured builds</p>
+          <h2 className="text-4xl font-bold text-transparent bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] bg-clip-text">
+            Signature builds & launches
+          </h2>
+          <p className="text-slate-600">
+            Each build is a real story—scoped thoughtfully, crafted with care, and shipped with the polish your customers feel the first time they log in.
+          </p>
         </div>
 
         {featuredProjects.length > 0 && (
           <div className="relative overflow-hidden rounded-[2.75rem] border border-white/50 bg-white/70 p-8 pb-10 shadow-[0_45px_120px_-90px_rgba(15,23,42,0.45)] backdrop-blur-xl">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-32 bg-gradient-to-r from-[#F9FBFF] via-[#F9FBFF]/80 to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-32 bg-gradient-to-l from-[#F9FBFF] via-[#F9FBFF]/80 to-transparent" />
-            <div className="project-marquee flex w-max gap-6">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r from-[#F9FBFF] via-[#F9FBFF]/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l from-[#F9FBFF] via-[#F9FBFF]/80 to-transparent" />
+            <div className="project-marquee-scroll overflow-x-auto scrollbar-hide pr-6 cursor-grab active:cursor-grabbing">
+              <div className="project-marquee flex w-max gap-6">
               {marqueeProjects.map((project, index) => {
                 const detailHref = `/portfolio/${project.slug}`;
                 const baseGradient = project.backgroundGradient ?? FALLBACK_GRADIENT;
@@ -128,17 +133,18 @@ const ProjectsSection = () => {
                 );
               })}
             </div>
+            </div>
           </div>
         )}
 
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white px-6 py-5 shadow-[0_35px_75px_-55px_rgba(15,23,42,0.35)]">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-[32px] border border-white/80 bg-white/80 px-8 py-6 shadow-[0_35px_100px_-60px_rgba(15,23,42,0.35)] backdrop-blur-2xl">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Need more context?</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#d85a1a]">Need more context?</p>
             <h3 className="text-lg font-semibold text-slate-900">Browse the full archive of Bubble builds and experiments.</h3>
           </div>
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 rounded-full border border-transparent bg-theme-blue px-6 py-3 text-sm font-semibold text-white shadow-[0_15px_35px_rgba(0,85,255,0.25)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(0,85,255,0.35)]"
+            className="inline-flex items-center gap-2 rounded-full border border-transparent bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(249,111,74,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_50px_rgba(249,111,74,0.4)]"
           >
             View full portfolio
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

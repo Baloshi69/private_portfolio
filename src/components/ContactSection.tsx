@@ -88,7 +88,8 @@ const ContactSection = () => {
     <section id="contact" className="bg-white">
       <div className="container">
         <div className="section-heading">
-          <h2 className="text-slate-900">Contact me directly</h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#d85a1a]">Let's talk</p>
+          <h2 className="text-transparent bg-gradient-to-r from-[#ff8c4c] via-[#f96f4a] to-[#ffb347] bg-clip-text">Contact me directly</h2>
           <p>Tell me about the product you want to ship and I&rsquo;ll reply with a plan within one business day.</p>
         </div>
         
@@ -116,7 +117,7 @@ const ContactSection = () => {
                               <a
                                 key={detail.label}
                                 href={detail.href}
-                                className="block text-base font-semibold text-slate-900 transition-colors hover:text-theme-blue"
+                                className="block text-base font-semibold text-slate-900 transition-colors hover:text-[#ff8c4c]"
                                 target={isExternal ? "_blank" : undefined}
                                 rel={isExternal ? "noreferrer" : undefined}
                               >
