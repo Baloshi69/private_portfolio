@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import PortfolioList from "./pages/PortfolioList";
 import PortfolioDetail from "./pages/PortfolioDetail";
 import NotFound from "./pages/NotFound";
+import CertificationsPage from "./pages/Certifications";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/certifications" element={<CertificationsPage />} />
           <Route path="/portfolio" element={<PortfolioList />} />
           <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

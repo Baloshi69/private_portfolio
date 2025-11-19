@@ -23,6 +23,7 @@ const Navbar = () => {
   const isPortfolioDetail =
     pathSegments[0] === "portfolio" && pathSegments.length === 2;
   const isLandingPage = location.pathname === "/";
+  const isCertificationsPage = location.pathname === "/certifications";
   const currentSlug = isPortfolioDetail ? pathSegments[1] : undefined;
 
   useEffect(() => {
@@ -42,24 +43,29 @@ const Navbar = () => {
     {
       name: "About",
       href: "#about",
+      type: "anchor",
     },
     {
-      name: "Skills",
-      href: "#skills",
+      name: "Certifications",
+      href: "/certifications",
+      type: "route",
     },
     {
       name: "Projects",
       href: "#projects",
+      type: "anchor",
     },
     {
       name: "Why Me",
       href: "#why-me",
+      type: "anchor",
     },
     {
       name: "Contact",
       href: "#contact",
+      type: "anchor",
     },
-  ];
+  ] as const;
 
   const handleBack = () => {
     setIsMobileMenuOpen(false);
@@ -84,27 +90,51 @@ const Navbar = () => {
   const backLabel = "Home";
 
   const hasMobileMenu =
-    isLandingPage || isPortfolioList || isPortfolioDetail;
+    isLandingPage || isPortfolioList || isPortfolioDetail || isCertificationsPage;
 
   const renderMobileMenuContent = () => {
     if (isLandingPage) {
       return (
         <div className="space-y-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="nav-link block rounded-lg px-4 py-2 text-sm hover:bg-[#F4F7FF]"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.type === "route" ? (
+              <Link
+                key={link.name}
+                to={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="nav-link block rounded-lg px-4 py-2 text-sm hover:bg-[#F4F7FF]"
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="nav-link block rounded-lg px-4 py-2 text-sm hover:bg-[#F4F7FF]"
+              >
+                {link.name}
+              </a>
+            ),
+          )}
         </div>
       );
     }
 
     if (isPortfolioList) {
+      return (
+        <button
+          type="button"
+          onClick={handleBack}
+          className="flex w-full items-center gap-2 rounded-lg border border-[#ffb48a] px-4 py-2 text-sm font-medium text-[#d85a1a] transition-colors hover:border-[#ff8c4c] hover:text-[#ff8c4c]"
+        >
+          <HomeIcon className="h-4 w-4" aria-hidden="true" />
+          <span>{backLabel}</span>
+        </button>
+      );
+    }
+
+    if (isCertificationsPage) {
       return (
         <button
           type="button"
@@ -143,7 +173,7 @@ const Navbar = () => {
     return null;
   };
 
-  const showSolidHeader = isScrolled || isPortfolioDetail;
+  const showSolidHeader = isScrolled || isPortfolioDetail || isPortfolioList || isCertificationsPage;
 
   return (
     <header
@@ -181,15 +211,17 @@ const Navbar = () => {
 
         {isLandingPage && (
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="nav-link text-sm transition-all"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.type === "route" ? (
+                <Link key={link.name} to={link.href} className="nav-link text-sm transition-all">
+                  {link.name}
+                </Link>
+              ) : (
+                <a key={link.name} href={link.href} className="nav-link text-sm transition-all">
+                  {link.name}
+                </a>
+              ),
+            )}
           </div>
         )}
 
@@ -212,6 +244,19 @@ const Navbar = () => {
         )}
 
         {isPortfolioList && (
+          <div className="hidden items-center space-x-3 md:flex md:space-x-4">
+            <button
+              type="button"
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 rounded-lg border border-[#ffb48a] bg-transparent px-4 py-2 text-sm font-medium text-[#d85a1a] transition-colors hover:border-[#ff8c4c] hover:text-[#ff8c4c]"
+            >
+              <HomeIcon className="h-4 w-4" aria-hidden="true" />
+              <span>{backLabel}</span>
+            </button>
+          </div>
+        )}
+
+        {isCertificationsPage && (
           <div className="hidden items-center space-x-3 md:flex md:space-x-4">
             <button
               type="button"
