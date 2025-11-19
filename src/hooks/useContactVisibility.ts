@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const CONTACT_RESTRICTED_DOMAIN = "albaloshi.tech";
+export const CONTACT_RESTRICTED_DOMAIN = "nasirnawaz.com";
 
 const isRestrictedHost = (host?: string) => {
   if (!host) return false;
