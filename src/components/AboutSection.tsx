@@ -1,5 +1,4 @@
 import React from "react";
-import { PlugZap, Workflow, Cpu } from "lucide-react";
 import { useIsNasirDomain } from "@/hooks/useContactVisibility";
 
 const howIWorkSteps = [

@@ -154,7 +154,7 @@ export const readinessPillars: ReadinessPillar[] = [
   },
   {
     title: "AI & Workflow Fusion",
-    detail: "Claude, GPT, and Gemini prompts embedded directly into Bubble actions and Make / Zapier ladders.",
+    detail: "Claude, GPT, and Gemini prompts embedded directly into Bubble actions and n8n / Make / Zapier ladders.",
   },
   {
     title: "Team Enablement",

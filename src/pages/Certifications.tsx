@@ -45,11 +45,11 @@ const CertificationsPage = () => {
                     The gallery is more than badges: it is a research-backed log of the skills used on live client systems.
                   </p>
                   <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-3xl border border-white/80 bg-white/90 p-4 shadow-[0_18px_45px_-30px_rgba(15,23,42,0.25)]">
+                    <div className="soft-card p-4">
                       <p className="text-sm font-semibold text-slate-900">Release rituals</p>
                       <p className="text-sm text-slate-600">Feature flags, regression suites, and multi-environment governance.</p>
                     </div>
-                    <div className="rounded-3xl border border-white/80 bg-white/90 p-4 shadow-[0_18px_45px_-30px_rgba(15,23,42,0.25)]">
+                    <div className="soft-card p-4">
                       <p className="text-sm font-semibold text-slate-900">Compliance focus</p>
                       <p className="text-sm text-slate-600">Privacy rules, SOC2-minded logging, and least-privilege access.</p>
                     </div>
@@ -105,14 +105,14 @@ const CertificationsPage = () => {
                 </div>
                 <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                   {certificationMeaningCards.map(({ title, description, icon: Icon }) => (
-                    <article key={title} className="rounded-[30px] border border-white/80 bg-gradient-to-br from-white via-[#fff8f4] to-white/90 p-5 text-left shadow-[0_25px_80px_-60px_rgba(15,23,42,0.35)]">
+                    <article key={title} className="relative soft-card p-5 text-left bg-white/95">
                       <div className="flex items-center gap-3">
                         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#fff0e4] text-[#ff8c4c] shadow-[0_10px_25px_rgba(249,140,76,0.25)]">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </div>
                         <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
                       </div>
-                      <p className="mt-3 text-sm text-slate-600">{description}</p>
+                      <p className="mt-3 text-sm text-slate-700">{description}</p>
                     </article>
                   ))}
                 </div>
@@ -122,7 +122,7 @@ const CertificationsPage = () => {
 
           <section className="container space-y-10">
             <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-              <article className="rounded-[40px] border border-white/70 bg-white/90 p-8 shadow-[0_45px_110px_-80px_rgba(15,23,42,0.5)]">
+              <article className="soft-card p-8">
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#f96f4a]">Certification spotlight</p>
                 <h2 className="mt-4 text-3xl font-semibold text-slate-900">
                   {spotlightCert.title} <span className="text-base text-[#94a3b8]">({spotlightCert.year})</span>
@@ -139,7 +139,7 @@ const CertificationsPage = () => {
                 </ul>
                 <div className="mt-7 grid gap-4 sm:grid-cols-3">
                   {spotlightCert.metrics.map((metric) => (
-                    <div key={metric.label} className="rounded-3xl border border-slate-100 bg-slate-50 p-4 text-center">
+                    <div key={metric.label} className="soft-card p-4 text-center bg-white/80">
                       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">{metric.label}</p>
                       <p className="mt-2 text-2xl font-semibold text-slate-900">{metric.value}</p>
                       <p className="text-xs text-slate-500">{metric.detail}</p>
@@ -149,7 +149,7 @@ const CertificationsPage = () => {
               </article>
               <div className="space-y-6">
                 {readinessPillars.map((pillar) => (
-                  <article key={pillar.title} className="rounded-[32px] border border-white/80 bg-gradient-to-r from-white via-[#fff8f4] to-white/90 p-6 shadow-[0_30px_90px_-70px_rgba(15,23,42,0.55)] transition hover:-translate-y-0.5 hover:shadow-[0_30px_80px_-60px_rgba(249,140,76,0.35)]">
+                  <article key={pillar.title} className="soft-card p-6">
                     <h3 className="text-lg font-semibold text-slate-900">{pillar.title}</h3>
                     <p className="mt-2 text-sm text-slate-600">{pillar.detail}</p>
                   </article>
@@ -177,7 +177,7 @@ const CertificationsPage = () => {
               {certificates.map((cert) => (
                 <article
                   key={cert.title}
-                  className="group relative flex flex-col rounded-[32px] border border-white/80 bg-white p-4 shadow-[0_35px_80px_-60px_rgba(15,23,42,0.4)] backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-[0_50px_110px_-65px_rgba(15,23,42,0.55)]"
+                  className="group relative flex flex-col soft-card p-4 backdrop-blur-xl"
                 >
                   <div className="overflow-hidden rounded-[24px] border border-slate-100 bg-slate-50">
                     <img src={cert.image} alt={cert.title} className="h-64 w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="lazy" />
@@ -214,7 +214,7 @@ const CertificationsPage = () => {
               {journeyTimeline.map((step) => {
                 const Icon = step.icon;
                 return (
-                  <article key={step.title} className="relative flex flex-col gap-4 rounded-[34px] border border-white/80 bg-white/90 p-6 shadow-[0_35px_100px_-70px_rgba(15,23,42,0.5)] md:flex-row md:items-center">
+                  <article key={step.title} className="relative flex flex-col gap-4 soft-card p-6 md:flex-row md:items-center">
                     <div className="flex items-center gap-4">
                       <span className="text-sm font-semibold uppercase tracking-[0.35em] text-[#94a3b8]">{step.year}</span>
                       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fff4ec] text-[#d85a1a]">

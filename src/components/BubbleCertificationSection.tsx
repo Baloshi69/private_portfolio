@@ -51,7 +51,7 @@ const BubbleCertificationSection = () => {
 
           <ul className="grid gap-3 sm:grid-cols-2">
             {spotlightCert.bullets.map((item) => (
-              <li key={item} className="flex items-start gap-3 rounded-2xl border border-white/70 bg-[#fff8f4]/80 px-4 py-4 text-sm leading-relaxed text-slate-700 shadow-[0_20px_55px_-36px_rgba(15,23,42,0.4)]">
+              <li key={item} className="flex items-start gap-3 soft-card p-4 text-sm leading-relaxed text-slate-700">
                 <span className="mt-0.5 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-white text-[#f96f4a] shadow-[0_12px_28px_-20px_rgba(249,111,74,0.5)]">
                   <BadgeCheck className="h-4 w-4" aria-hidden="true" />
                 </span>
@@ -64,7 +64,7 @@ const BubbleCertificationSection = () => {
             {spotlightCert.metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="rounded-3xl border border-[#ffe0cf] bg-gradient-to-br from-white via-[#fff8f4] to-white p-4 text-center shadow-[0_24px_70px_-50px_rgba(15,23,42,0.5)]"
+                className="soft-card p-4 text-center bg-white/85"
               >
                 <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#94a3b8]">{metric.label}</p>
                 <p className="mt-2 text-2xl font-semibold text-slate-900">{metric.value}</p>
@@ -77,10 +77,7 @@ const BubbleCertificationSection = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#94a3b8]">More Bubble credentials</p>
             <div className="grid gap-4 sm:grid-cols-2">
               {supportingCerts.map((cert) => (
-                <div
-                  key={cert.title}
-                  className="rounded-[26px] border border-white/80 bg-gradient-to-br from-white via-[#f7faff] to-white p-4 shadow-[0_26px_70px_-55px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_-60px_rgba(15,23,42,0.5)]"
-                >
+                <div key={cert.title} className="soft-card p-4">
                   <div className="flex items-center justify-between gap-3">
                     <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#d85a1a]">{cert.issuer}</p>
                     <span className="rounded-full bg-[#fff3e6] px-3 py-1 text-[11px] font-semibold text-[#d85a1a]">{cert.year}</span>
@@ -116,7 +113,7 @@ const BubbleCertificationSection = () => {
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
-          <div className="flex items-start justify-center sm:justify-center mt-1">
+          <div className="flex items-start justify-center sm:justify-center mt-0.5">
             <p className="inline-flex items-start gap-1 text-[11px] font-medium text-slate-600 sm:text-right">
               <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#ffd3bf] text-[#c2410c]">!</span>
               <span>Verified by Bubble; full badge gallery on the certifications page.</span>

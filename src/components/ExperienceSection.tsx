@@ -50,7 +50,7 @@ const ExperienceSection = () => {
           {reasons.map(({ title, description, Icon }) => (
             <article
               key={title}
-              className="rounded-[36px] border border-white/70 bg-gradient-to-br from-[#fff8f4] via-white to-[#fff8f4] p-6 shadow-[0_30px_80px_-60px_rgba(15,23,42,0.35)] transition hover:-translate-y-1 hover:shadow-[0_40px_90px_-55px_rgba(15,23,42,0.45)]"
+              className="soft-card p-6"
             >
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#ff8c4c] shadow-[0_12px_30px_rgba(249,140,76,0.25)]">
                 <Icon className="h-5 w-5" aria-hidden="true" />
@@ -60,7 +60,7 @@ const ExperienceSection = () => {
             </article>
           ))}
         </div>
-        <article className="mt-6 rounded-[36px] border border-white/80 bg-gradient-to-br from-[#fff8f4] via-white to-[#fff8f4] px-8 py-6 text-center shadow-[0_35px_90px_-60px_rgba(15,23,42,0.35)]">
+        <article className="mt-6 soft-card px-8 py-6 text-center">
           <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#ff8c4c] shadow-[0_12px_30px_rgba(249,140,76,0.25)]">
             <Sparkles className="h-5 w-5" aria-hidden="true" />
           </div>

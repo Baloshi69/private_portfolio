@@ -66,7 +66,7 @@ const WhatIBringSection = () => {
           {skills.map(({ title, subtitle, description, Icon, accent }) => (
             <article
               key={title}
-              className="rounded-[32px] border border-white/70 bg-gradient-to-br from-white via-[#fffaf5] to-white/90 p-6 shadow-[0_30px_70px_-50px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:shadow-[0_40px_90px_-55px_rgba(15,23,42,0.45)]"
+              className="soft-card p-6"
             >
               <div className="flex gap-4">
                 <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${accent} text-[#ff8c4c] shadow-[0_15px_35px_rgba(249,140,76,0.25)]`}>
